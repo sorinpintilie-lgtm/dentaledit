@@ -6,6 +6,7 @@ import { Sparkles, ArrowRight } from "lucide-react";
 import Container from "./ui/Container";
 import Chip from "./ui/Chip";
 import { ButtonLink } from "./ui/Button";
+import Image from "next/image";
 
 const float = (delay: number) => ({
   animate: { y: [0, -6, 0] },
@@ -16,11 +17,14 @@ export default function Hero() {
   return (
     <section id="top" className="relative min-h-[70vh] sm:min-h-screen flex items-center justify-center pt-36 sm:pt-10 md:pt-4">
       {/* Image Background */}
-      <div className="absolute inset-0 -z-10">
-        <img
+      <div className="absolute inset-0 z-0">
+        <Image
           src="/images/hero.png"
           alt="Dental Clinic Background"
-          className="w-full h-full object-cover object-[90%_center] md:object-center"
+          fill
+          className="object-cover object-[90%_center] md:object-center"
+          priority
+          sizes="100vw"
         />
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/20" />
